@@ -3,7 +3,8 @@
 Este documento reúne a modelagem inicial da solução: fluxo de uso e modelo de dados. Os diagramas usam [Mermaid.js](https://mermaid.js.org/), renderizado automaticamente pelo GitHub ao abrir este arquivo.
 
 ---
-
+**Link: Cartões no TRELLO https://trello.com/b/1KPuoH9i/ctbjeca-planejamento**
+---
 ## 1. Fluxograma de Uso (Aluno)
 
 Caminho do aluno dentro do sistema, cobrindo tanto quem já sabe o que quer (busca direta) quanto quem não sabe (descoberta).
