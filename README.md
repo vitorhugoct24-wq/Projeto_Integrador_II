@@ -25,7 +25,7 @@ A ideia central é que o site **cria a organização que o acervo físico não t
 
 ## Expansão do escopo: um portal da biblioteca, não só de livros
 
-Ao longo do desenvolvimento, identificamos que a biblioteca do CTBJ vai além dos livros: empresta jogos de mesa (xadrez, damas) e instrumentos musicais (violão), e funciona como ponto de referência para achados e perdidos da escola. Além disso, como o uso de celular é proibido no CTBJ, o acesso ao sistema durante o expediente escolar precisa acontecer por um **totem/tablet fixo instalado na própria biblioteca**, em vez de depender do celular do aluno.
+Ao longo do desenvolvimento, identificamos que a biblioteca do CTBJ vai além dos livros: empresta jogos de mesa (xadrez, damas) e instrumentos musicais (violão), e funciona como ponto de referência para achados e perdidos da escola. Além disso, como o uso de celular é proibido no CTBJ durante o horário de aula, o acesso ao sistema dentro da escola precisa acontecer por um **totem/tablet fixo instalado na própria biblioteca**. Fora da escola — em casa ou fora do horário de aula — o aluno continua podendo acessar o CTBJeca normalmente pelo próprio celular ou computador, já que o sistema é responsivo.
 
 Isso levou a três novas frentes no CTBJeca:
 
@@ -35,4 +35,4 @@ Isso levou a três novas frentes no CTBJeca:
 
 ## Público-alvo
 
-Alunos do CTBJ (Colégio Técnico de Bom Jesus, Piauí — ensino médio e técnico) que buscam tanto títulos específicos para pesquisa acadêmica quanto sugestões de leitura de lazer, além de quem usa a biblioteca para jogos, instrumentos ou para verificar itens perdidos — tudo isso via totem físico na biblioteca, sem depender de celular.
+Alunos do CTBJ (Colégio Técnico de Bom Jesus, Piauí — ensino médio e técnico) que buscam tanto títulos específicos para pesquisa acadêmica quanto sugestões de leitura de lazer, além de quem usa a biblioteca para jogos, instrumentos ou para verificar itens perdidos — via totem físico dentro da escola (onde o celular é proibido) e via celular/computador fora da escola.
