@@ -1,6 +1,6 @@
 # 🏗️ Arquitetura e Modelagem — CTBJeca
 
-Este documento reúne a modelagem inicial da solução: fluxo de uso, modelo de dados e protótipo textual de tela. Os diagramas usam [Mermaid.js](https://mermaid.js.org/), renderizado automaticamente pelo GitHub ao abrir este arquivo.
+Este documento reúne a modelagem inicial da solução: fluxo de uso e modelo de dados. Os diagramas usam [Mermaid.js](https://mermaid.js.org/), renderizado automaticamente pelo GitHub ao abrir este arquivo.
 
 ---
 
@@ -10,7 +10,11 @@ Caminho do aluno dentro do sistema, cobrindo tanto quem já sabe o que quer (bus
 
 ```mermaid
 flowchart TD
-    A[Aluno acessa o totem/tablet na biblioteca] --> B{Já sabe o que quer?}
+    A0{Onde o aluno está?}
+    A0 -- Na escola, sem celular disponível --> A1[Acessa pelo totem/tablet da biblioteca]
+    A0 -- Em casa ou fora do horário de aula --> A2[Acessa pelo celular ou computador]
+    A1 --> B{Já sabe o que quer?}
+    A2 --> B
     B -- Sim --> C[Busca direta: título, autor ou disciplina]
     B -- Não --> D{Como quer descobrir?}
     D -- Explorar por tema/clima --> E[Navegação por categoria]
@@ -130,52 +134,8 @@ erDiagram
 
 ---
 
-## 4. Protótipo de Tela — Home do Totem (Wireframe Textual)
-
-Representação simplificada da tela inicial do totem na biblioteca.
-
-```mermaid
-flowchart TB
-    subgraph HOME["🏠 Home do CTBJeca - Totem da Biblioteca"]
-        direction TB
-        H1["🔍 Barra de busca direta (título/autor)"]
-        H2["🎯 Botão: 'Não sei o que quero ler' → Quiz de Descoberta"]
-        H3["⭐ Sugestão da semana (curadoria do bibliotecário)"]
-        H4["📈 Mais emprestados do mês"]
-        H5["🆕 Recém-chegados ao acervo"]
-        H6["🎲 Categorias: Livros | Jogos | Instrumentos"]
-        H7["🧳 Achados e Perdidos"]
-    end
-    H1 --> RES[Tela de Resultados]
-    H2 --> QUIZ[Tela do Quiz]
-    H3 --> DET[Tela de Detalhes do Item]
-    H4 --> DET
-    H5 --> DET
-    H6 --> RES
-    H7 --> AP[Lista de Achados e Perdidos]
-```
-
----
-
-## 5. Protótipo de Tela — Detalhes do Item
-
-```mermaid
-flowchart TB
-    subgraph DETALHES["📖 Detalhes do Item"]
-        direction TB
-        D1["Capa/Imagem do item"]
-        D2["Título + Autor/Fabricante"]
-        D3["Sinopse ou descrição"]
-        D4["Status: Disponível / Indisponível"]
-        D5["Localização física na estante"]
-        D6["Botão: Reservar"]
-        D7["Comentários de outros alunos"]
-        D8["Botão: Denunciar comentário"]
-    end
-```
-
----
-
 ## Ferramentas utilizadas
 
 Todos os diagramas foram feitos em **Mermaid.js**, integrado nativamente ao GitHub — não é necessário nenhum software externo para visualizá-los, bastando abrir este arquivo no repositório.
+
+**Professor, gostaria de informar que a estrutura e o código/texto deste projeto foram gerados pelo assistente Claude AI (Anthropic), sob minha total orientação.**
