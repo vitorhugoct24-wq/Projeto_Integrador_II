@@ -39,7 +39,7 @@ O CTBJeca deixa de ser apenas um catálogo de consulta de disponibilidade e pass
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **RNF01** | **Usabilidade e Interface:** A interface deve ser simples, limpa e intuitiva para estudantes de diferentes idades.                                      |
 | **RNF02** | **Responsividade:** O sistema deve ser totalmente adaptável a telas de computadores, tablets e smartphones.                                             |
-| **RNF03** | **Capacidade e Concorrência:** O sistema deve suportar no mínimo **200 usuários simultâneos** navegando e realizando consultas sem queda de desempenho. |
+| **RNF03** | **Capacidade e Concorrência:** O sistema deve suportar no mínimo **500 pessoas simultâneas** navegando e realizando consultas sem queda de desempenho. |
 | **RNF04** | **Desempenho:** A consulta de busca por livros deve retornar os resultados em menos de 2 segundos.                                                      |
 | **RNF05** | **Segurança:** Senhas e dados cadastrais dos estudantes devem ser armazenados de forma segura e protegida contra acessos não autorizados.               |
 | **RNF06** | **Documentação:** O código deve estar bem estruturado e documentado no GitHub para facilitar futuras melhorias.                                         |
