@@ -29,7 +29,7 @@ O CTBJeca deixa de ser apenas um catálogo de consulta de disponibilidade e pass
 | **RF13** | **Achados e Perdidos:** Permitir que o administrador cadastre itens encontrados na biblioteca/escola (com descrição e, se possível, foto), e que os alunos consultem essa lista para verificar se algum pertence a eles. |
 | **RF14** | **Comentários sobre Livros e Itens:** Permitir que alunos comentem publicamente sobre livros, jogos ou instrumentos do acervo (opiniões, recomendações, avisos), criando uma camada social de interação em torno do acervo. |
 | **RF15** | **Denúncia e Moderação de Comentários:** Permitir que qualquer aluno denuncie um comentário impróprio, e que o administrador visualize as denúncias e remova o conteúdo quando necessário. |
-| **RF16** | **Acesso via Totem na Biblioteca:** Disponibilizar o sistema em um totem/tablet fixo instalado na biblioteca, com interface adaptada para uso local, permitindo que alunos consultem o CTBJeca mesmo com a proibição do uso de celular na escola. |
+| **RF16** | **Acesso Multi-canal (Totem e Celular/Computador):** Disponibilizar o sistema tanto em um totem/tablet fixo instalado na biblioteca (para uso dentro da escola, já que o celular é proibido em sala) quanto via navegador comum, para que o aluno também possa acessar de casa ou fora do horário de aula pelo próprio celular ou computador. |
 
 ---
 
@@ -43,6 +43,6 @@ O CTBJeca deixa de ser apenas um catálogo de consulta de disponibilidade e pass
 | **RNF04** | **Desempenho:** A consulta de busca por livros deve retornar os resultados em menos de 2 segundos.                                                      |
 | **RNF05** | **Segurança:** Senhas e dados cadastrais dos estudantes devem ser armazenados de forma segura e protegida contra acessos não autorizados.               |
 | **RNF06** | **Documentação:** O código deve estar bem estruturado e documentado no GitHub para facilitar futuras melhorias.                                         |
-| **RNF07** | **Qualidade dos Dados de Recomendação:** As sugestões de RF09 e RF11 devem se basear apenas em dados reais do acervo e do histórico de empréstimos, evitando recomendações genéricas ou desconectadas do que está disponível no CTBJ. |
-| **RNF08** | **Modo Totem/Quiosque:** A interface exibida no totem/tablet da biblioteca deve funcionar em modo quiosque (sem acesso a outras funções do dispositivo), com botões grandes, navegação simples por toque e sem exigir login individual complexo para consultas básicas. |
+| **RNF07** | **Qualidade dos Dados de Recomendação:** As sugestões de RF09 e RF11 devem se basear apenas em dados reais do acervo e do histórico de empréstimos, evitando recomendações genéricas ou desconectadas do que está disponível na CTBJ. |
+| **RNF08** | **Modo Totem/Quiosque e Responsividade:** No totem/tablet da biblioteca, a interface deve funcionar em modo quiosque (sem acesso a outras funções do dispositivo), com botões grandes, navegação simples por toque e sem exigir login individual complexo para consultas básicas. Fora da escola, a mesma interface deve estar disponível de forma responsiva em celulares e computadores comuns, sem modo quiosque. |
 | **RNF09** | **Moderação de Conteúdo Gerado por Aluno:** Comentários (RF14) devem passar por verificação básica de conteúdo impróprio e ficar sujeitos a denúncia (RF15), evitando exposição de ofensas ou informações inadequadas antes da remoção pelo administrador. |
