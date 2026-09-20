@@ -4,9 +4,9 @@ import { notFound } from "next/navigation"
 import { ArrowLeft, MapPin, Star, Users } from "lucide-react"
 import { getItem, itens, tiposLabel } from "@/lib/data"
 import { ItemCover } from "@/components/item-cover"
-import { StatusBadge } from "@/components/status-badge"
 import { ItemCard } from "@/components/item-card"
-import { ReservaButton } from "@/components/item/reserva-button"
+import { ComentariosSection } from "@/components/item/comentarios-section"
+import { ItemStatusLive } from "@/components/item/item-status-live"
 
 export function generateStaticParams() {
   return itens.map((i) => ({ id: i.id }))
@@ -63,7 +63,7 @@ export default async function ItemPage({
           <div className="md:sticky md:top-24">
             <ItemCover item={item} />
             <div className="mt-4">
-              <ReservaButton status={item.status} titulo={item.titulo} />
+              <ItemStatusLive itemId={item.id} statusInicial={item.status} titulo={item.titulo} />
             </div>
           </div>
         </div>
@@ -78,7 +78,6 @@ export default async function ItemPage({
                 {item.disciplina}
               </span>
             )}
-            <StatusBadge status={item.status} />
           </div>
 
           <h1 className="mt-4 font-serif text-3xl font-semibold text-foreground text-balance md:text-4xl">
@@ -133,44 +132,7 @@ export default async function ItemPage({
             </div>
           </div>
 
-          <section className="mt-10">
-            <h2 className="font-serif text-xl font-semibold text-foreground">
-              O que a turma achou
-            </h2>
-            {item.comentarios.length > 0 ? (
-              <ul className="mt-4 space-y-4">
-                {item.comentarios.map((c) => (
-                  <li key={c.id} className="rounded-2xl border border-border bg-card p-4">
-                    <div className="flex items-center justify-between gap-3">
-                      <div>
-                        <p className="font-medium text-foreground">{c.aluno}</p>
-                        <p className="text-xs text-muted-foreground">{c.turma}</p>
-                      </div>
-                      <div className="flex items-center gap-0.5" aria-label={`Nota ${c.nota} de 5`}>
-                        {Array.from({ length: 5 }).map((_, i) => (
-                          <Star
-                            key={i}
-                            className={
-                              i < c.nota
-                                ? "size-4 fill-accent text-accent"
-                                : "size-4 text-border"
-                            }
-                            aria-hidden
-                          />
-                        ))}
-                      </div>
-                    </div>
-                    <p className="mt-3 text-sm leading-relaxed text-foreground/90">{c.texto}</p>
-                    <p className="mt-2 text-xs text-muted-foreground">{c.data}</p>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="mt-3 rounded-2xl border border-dashed border-border p-6 text-sm text-muted-foreground">
-                Ainda não há comentários. Seja a primeira pessoa da turma a avaliar depois de ler!
-              </p>
-            )}
-          </section>
+          <ComentariosSection itemId={item.id} comentariosIniciais={item.comentarios} />
         </div>
       </div>
 

@@ -135,3 +135,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .campo {
+    @apply w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-sm text-foreground outline-none focus:border-primary;
+  }
+}
