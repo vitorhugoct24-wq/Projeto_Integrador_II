@@ -3,7 +3,8 @@
 import { useMemo, useState } from "react"
 import Link from "next/link"
 import { Library, Search, X, MapPin, LogOut, Compass } from "lucide-react"
-import { itens, tiposLabel, type ItemTipo } from "@/lib/data"
+import { tiposLabel, type ItemTipo } from "@/lib/data"
+import { useStore } from "@/lib/store"
 import { TypeIcon } from "@/components/type-icon"
 import { StatusBadge } from "@/components/status-badge"
 import { cn } from "@/lib/utils"
@@ -11,6 +12,7 @@ import { cn } from "@/lib/utils"
 const tipos = Object.keys(tiposLabel) as ItemTipo[]
 
 export function TotemClient() {
+  const { itens } = useStore()
   const [q, setQ] = useState("")
   const [tipo, setTipo] = useState<ItemTipo | null>(null)
 
@@ -24,7 +26,7 @@ export function TotemClient() {
       }
       return true
     })
-  }, [q, tipo])
+  }, [q, tipo, itens])
 
   const buscando = q.trim().length > 0 || tipo !== null
 

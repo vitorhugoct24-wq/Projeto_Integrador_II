@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react"
 import { MapPin, CalendarDays, Search, PackageCheck } from "lucide-react"
-import { achados } from "@/lib/data"
+import { useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
 
 type Filtro = "todos" | "aguardando" | "devolvido"
@@ -14,6 +14,7 @@ const filtros: { valor: Filtro; rotulo: string }[] = [
 ]
 
 export function AchadosClient() {
+  const { achados } = useStore()
   const [q, setQ] = useState("")
   const [filtro, setFiltro] = useState<Filtro>("todos")
 
@@ -27,7 +28,7 @@ export function AchadosClient() {
       }
       return true
     })
-  }, [q, filtro])
+  }, [q, filtro, achados])
 
   const aguardando = achados.filter((a) => a.status === "aguardando").length
 

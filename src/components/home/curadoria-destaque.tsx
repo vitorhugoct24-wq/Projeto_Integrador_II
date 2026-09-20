@@ -2,7 +2,7 @@ import Link from "next/link"
 import { Quote, ArrowRight } from "lucide-react"
 import { curadoria, getItem } from "@/lib/data"
 import { ItemCover } from "@/components/item-cover"
-import { StatusBadge } from "@/components/status-badge"
+import { LiveStatusBadge } from "@/components/live-status-badge"
 
 export function CuradoriaDestaque() {
   const item = getItem(curadoria.itemId)
@@ -34,7 +34,7 @@ export function CuradoriaDestaque() {
           </figure>
 
           <div className="mt-5 flex flex-wrap items-center gap-3">
-            <StatusBadge status={item.status} />
+            <LiveStatusBadge itemId={item.id} statusInicial={item.status} />
             <Link
               href={`/item/${item.id}`}
               className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"

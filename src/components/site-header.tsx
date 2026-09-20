@@ -3,8 +3,9 @@
 import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Library, Menu, X, Monitor } from "lucide-react"
+import { Library, Menu, X, Monitor, User, LogOut, ShieldCheck } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useAuth } from "@/lib/auth"
 
 const nav = [
   { href: "/", label: "Início" },
@@ -17,6 +18,7 @@ const nav = [
 export function SiteHeader() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const { user, logout } = useAuth()
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/75">
@@ -60,6 +62,41 @@ export function SiteHeader() {
             <Monitor className="size-4" aria-hidden />
             Modo Totem
           </Link>
+
+          {user ? (
+            <div className="hidden items-center gap-2 sm:flex">
+              {user.role === "bibliotecaria" && (
+                <Link
+                  href="/admin"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-border px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                >
+                  <ShieldCheck className="size-4" aria-hidden />
+                  Área da bibliotecária
+                </Link>
+              )}
+              <span className="inline-flex items-center gap-1.5 rounded-lg bg-secondary px-3 py-2 text-sm font-medium text-secondary-foreground">
+                <User className="size-4" aria-hidden />
+                {user.nome.split(" ")[0]}
+              </span>
+              <button
+                type="button"
+                onClick={logout}
+                aria-label="Sair"
+                className="inline-flex size-9 items-center justify-center rounded-lg text-muted-foreground hover:bg-muted hover:text-foreground"
+              >
+                <LogOut className="size-4" aria-hidden />
+              </button>
+            </div>
+          ) : (
+            <Link
+              href="/login"
+              className="hidden items-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-sm font-medium text-primary-foreground sm:inline-flex"
+            >
+              <User className="size-4" aria-hidden />
+              Entrar
+            </Link>
+          )}
+
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -102,6 +139,41 @@ export function SiteHeader() {
               <Monitor className="size-4" aria-hidden />
               Modo Totem
             </Link>
+
+            {user ? (
+              <>
+                {user.role === "bibliotecaria" && (
+                  <Link
+                    href="/admin"
+                    onClick={() => setOpen(false)}
+                    className="flex items-center gap-2 rounded-lg px-3 py-3 text-base font-medium text-muted-foreground hover:bg-muted"
+                  >
+                    <ShieldCheck className="size-4" aria-hidden />
+                    Área da bibliotecária
+                  </Link>
+                )}
+                <button
+                  type="button"
+                  onClick={() => {
+                    logout()
+                    setOpen(false)
+                  }}
+                  className="flex items-center gap-2 rounded-lg px-3 py-3 text-base font-medium text-muted-foreground hover:bg-muted"
+                >
+                  <LogOut className="size-4" aria-hidden />
+                  Sair ({user.nome.split(" ")[0]})
+                </button>
+              </>
+            ) : (
+              <Link
+                href="/login"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-2 rounded-lg px-3 py-3 text-base font-medium text-primary hover:bg-muted"
+              >
+                <User className="size-4" aria-hidden />
+                Entrar
+              </Link>
+            )}
           </div>
         </nav>
       )}

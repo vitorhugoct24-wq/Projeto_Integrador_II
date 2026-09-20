@@ -2,7 +2,7 @@ import Link from "next/link"
 import { cn } from "@/lib/utils"
 import type { Item } from "@/lib/data"
 import { ItemCover } from "@/components/item-cover"
-import { StatusBadge } from "@/components/status-badge"
+import { LiveStatusBadge } from "@/components/live-status-badge"
 
 export function ItemCard({
   item,
@@ -33,7 +33,7 @@ export function ItemCard({
         </h3>
         <p className="text-xs text-muted-foreground line-clamp-1">{item.autor}</p>
         <div className="mt-auto pt-2">
-          <StatusBadge status={item.status} />
+          <LiveStatusBadge itemId={item.id} statusInicial={item.status} />
         </div>
       </div>
     </Link>
